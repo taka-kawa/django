@@ -1,0 +1,28 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+<!-- 空文字なら現在開いているurl -->
+<p>{{day.title}}</p>
+<form action="" method="POST">
+<!-- 下記でモデルの内容をフォームに自動反映 -->
+<!-- {{form.as_ul}} -->
+<!-- {{form.as_p}} -->
+  <table class="table">
+    <tr>
+      <th>{{form.title.label}}</th>
+      <td>{{form.title}}</td>
+    </tr>
+    <tr>
+      <th>本文</th>
+      <td>{{form.text}}</td>
+    </tr>
+    <tr>
+      <th>日付</th>
+      <td>{{form.date}}</td>
+    </tr>
+  </table>
+<button type="submit", class="btn btn-primary">送信</button>
+<!-- POSTでのおまじない -->
+{% csrf_token %}
+</form>
+{% endblock %}
